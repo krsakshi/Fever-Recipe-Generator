@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fever Recipe Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f6fa;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #6d6875;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #b5838d;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6d6875;
+        }
+        .recipe {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ffcdb2;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fever Recipe Generator</h1>
+    <div class="container">
+        <p>Enter your symptoms or preferences below to get a recipe recommendation.</p>
+        <input type="text" id="symptomInput" placeholder="E.g., cold, fever, cough, headache, chills, etc." />
+        <button onclick="generateRecipe()">Get Recipe</button>
+        <div class="recipe" id="recipeOutput"></div>
+    </div>
+
+    <script>
+        function generateRecipe() {
+            const symptom = document.getElementById('symptomInput').value.toLowerCase();
+            const recipeOutput = document.getElementById('recipeOutput');
+            let recipe;
+
+            if (symptom.includes('headache') || symptom.includes('chills')) {
+                recipe = `
+                    <h3>Ginger Lemon Tea</h3>
+                    <p><b>Ingredients:</b> Fresh ginger, lemon, honey, and hot water.</p>
+                    <p><b>Instructions:</b> Boil water with grated ginger. Add lemon juice and honey for taste. Serve warm.</p>
+                    
+                  <p> Take medicine, take rest and Sleep on time . <p>
+                `;
+            } else if (symptom.includes('body ache') || symptom.includes('fever')) {
+                recipe = `
+                    <h3>Herbal Turmeric Milk</h3>
+                    <p><b>Ingredients:</b> Milk, turmeric powder </p>
+                    <p><b>Instructions:</b> Heat milk and mix in a teaspoon of turmeric powder. Drink warm.</p>
+                  <p> Take medicine, take rest and Sleep on time . <p>
+                `;
+            } else {
+                recipe = `
+                    <h3>Soup</h3>
+                    <p><b>Ingredients:</b> knor soup powder, water.</p>
+                    <p><b>Instructions:</b> Boil water, add knor soup. drink warm.</p>
+                 <p> Take medicine, take rest and Sleep on time . <p>
+                `;
+            }
+
+            recipeOutput.innerHTML = recipe;
+        }
+    </script>
+</body>
+</html>
